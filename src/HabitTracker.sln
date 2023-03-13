@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitTracker.App", "HabitTracker.App\HabitTracker.App.csproj", "{50B67479-7C66-4639-AC64-1D9FE8AE4EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitTracker.Data", "HabitTracker.Data\HabitTracker.Data.csproj", "{3043DF35-C8FD-4643-A0CC-7364FE5EEEB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50B67479-7C66-4639-AC64-1D9FE8AE4EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B67479-7C66-4639-AC64-1D9FE8AE4EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B67479-7C66-4639-AC64-1D9FE8AE4EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B67479-7C66-4639-AC64-1D9FE8AE4EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3043DF35-C8FD-4643-A0CC-7364FE5EEEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3043DF35-C8FD-4643-A0CC-7364FE5EEEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3043DF35-C8FD-4643-A0CC-7364FE5EEEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3043DF35-C8FD-4643-A0CC-7364FE5EEEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

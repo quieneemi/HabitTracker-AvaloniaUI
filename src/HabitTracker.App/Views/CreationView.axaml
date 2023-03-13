@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:HabitTracker.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+             x:Class="HabitTracker.App.Views.CreationView">
+    
+    <Design.DataContext>
+        <vm:CreationViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <!-- Cancel button -->
+        <Button DockPanel.Dock="Bottom" Margin="0, 5, 0, 5" Width="200"
+                Content="Cancel" Command="{Binding $parent[Window].DataContext.ShowMainView}"/>
+        <!-- OK button -->
+        <Button DockPanel.Dock="Bottom" Margin="0, 20, 0, 0" Width="200"
+                Content="OK" Command="{Binding CreateCommand}"/>
+        <!-- Fields -->
+        <StackPanel Spacing="15" Margin="20">
+            <StackPanel Spacing="5">
+                <Label Content="Set a habit to track:"/>
+                <TextBox Text="{Binding Title}"/>
+            </StackPanel>
+            <StackPanel Spacing="5">
+                <Label Content="What would be a motivation:"/>
+                <TextBox Text="{Binding Description}"/>
+            </StackPanel>
+            <StackPanel Spacing="5">
+                <Label Content="When will you start:"/>
+                <DatePicker SelectedDate="{Binding Date}"/>
+            </StackPanel>
+            <StackPanel Spacing="5">
+                <Label Content="How many days you want to challenge for:"/>
+                <NumericUpDown Value="{Binding Days}" Minimum="2" Maximum="14"
+                               HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

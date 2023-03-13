@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:HabitTracker.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+             x:Class="HabitTracker.App.Views.SummaryView">
+    
+    <Design.DataContext>
+        <vm:SummaryViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Margin="0, 20, 0, 0"
+                Content="Go Back" Command="{Binding $parent[Window].DataContext.ShowMainView}"/>
+        
+        <StackPanel Spacing="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Congratulations!" Margin="0, 0, 0, 9" Classes="Headline4"/>
+            <TextBlock Text="{Binding Title, StringFormat='{}{0} completed'}" Classes="Body1"/>
+            <TextBlock Text="{Binding DaysCheckedStat, StringFormat='Days checked: {0}'}" Classes="Body1"/>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

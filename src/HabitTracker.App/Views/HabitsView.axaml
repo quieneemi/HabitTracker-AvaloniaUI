@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:HabitTracker.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="using:Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+             x:Class="HabitTracker.App.Views.HabitsView">
+    
+    <Design.DataContext>
+        <vm:HabitsViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel Margin="9">
+        <!-- Create habit button -->
+        <Button DockPanel.Dock="Bottom" Margin="0, 10, 0, 0" Width="140" Height="40"
+                Content="ADD ITEM" Command="{Binding $parent[Window].DataContext.OnCreateCommand}">
+        </Button>
+        <TextBlock Text="Nothing there.. Add an item" IsVisible="{Binding !Items.Count}"
+                   Classes="Headline6" Margin="9"/>
+        <!-- Habit list -->
+        <ListBox Items="{Binding Items}"
+                 SelectedItem="{Binding $parent[Window].DataContext.SelectedItem}">
+            <!-- Items -->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <controls:Card>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Background="Transparent" Classes="Flat"
+                                    Command="{Binding $parent[Window].DataContext.OnDeleteCommand}"
+                                    CommandParameter="{Binding}">
+                                <material:MaterialIcon Kind="TrashCan" Foreground="Black"/>
+                            </Button>
+                            <StackPanel>
+                                <Label Content="{Binding Title}" FontWeight="SemiBold"/>
+                                <Label Content="{Binding Description}" FontWeight="SemiLight"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </controls:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+    
+</UserControl>

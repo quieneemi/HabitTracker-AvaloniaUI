@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:HabitTracker.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Material.Styles;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+             x:Class="HabitTracker.App.Views.ChecksView">
+    
+    <Design.DataContext>
+        <vm:ChecksViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <!-- Go Back button -->
+        <Button DockPanel.Dock="Bottom" Margin="0, 20, 0, 0"
+                Content="Go Back" Command="{Binding $parent[Window].DataContext.ShowMainView}"/>
+        <!-- Check list -->
+        <ScrollViewer>
+            <ItemsControl Items="{Binding Items}" Margin="9">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:Card Margin="6">
+                            <CheckBox IsChecked="{Binding IsChecked}"
+                                      Command="{Binding $parent[ItemsControl].DataContext.OnChecked}"
+                                      CommandParameter="{Binding}">
+                                <TextBlock Text="{Binding Date, StringFormat='{}{0:MMMM dd, yyyy}'}"
+                                           Classes="Body2"/>
+                            </CheckBox>
+                        </controls:Card>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+    
+</UserControl>
