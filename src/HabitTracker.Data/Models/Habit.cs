@@ -10,7 +10,12 @@ public class Habit
     
     public int CheckedDays => Checks.Count(check => check.IsChecked);
 
-    public Habit() => Checks = new List<Check>();
+    public Habit()
+    {
+        Title = string.Empty;
+        Description = string.Empty;
+        Checks = new List<Check>();
+    }
     
     public Habit(string title, string description, ICollection<Check> checks)
     {
